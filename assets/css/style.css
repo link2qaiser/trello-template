@@ -1,4 +1,4 @@
-/*try css*/
+/*try Css*/
 .try.breadcrumb {
   list-style: none;
   background-color: #f1f5f7 !important;
@@ -245,7 +245,7 @@ a {
   box-shadow: 0px 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
-/*trymodla css*/
+/*tryModal Css*/
 .trymodal.app {
   display: flex;
   flex-flow: column;
@@ -353,11 +353,11 @@ a {
   font-size: 10px !important;
 }
 
-.trymodal.w-80 {
+.w-80 {
   width: 800px !important;
 }
 
-.trymodal.ml-custom {
+.ml-custom {
   margin-left: -152px;
 }
 
