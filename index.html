@@ -1,511 +1,484 @@
 <html>
-
-<head>
-  <title>Trello</title>
-  <link rel="stylesheet" href="./assets/bootstrap.min.css" >
-  <link rel="stylesheet" href="./assets/jquery-ui.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <script src="./assets/jquery-1.12.4.min.js"></script>
-  <script src="./assets/jquery-ui.min.js"></script>
-  <style>
-   
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <div class="row">     
-
-      <div class="col-md-3"> 
-        <div class="status-card">
-          <div class="card-header">
-            <span class="card-header-text">New</span>
-          </div>
-          <ul class="sortable ui-sortable" id="sort1" data-status-id="1">
-            <li class="text-row ui-sortable-handle" data-task-id="1" data-toggle="modal" data-target="#standardModal">Tutorial CRUD</li>
-          </ul>
-          <div class="actions">
-            <div class="add-card">
-              <a href="#" class="add-card-btn">+ Add a task...</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="status-card">
-          <div class="card-header">
-            <span class="card-header-text">In Progress</span>
-          </div>
-          <ul class="sortable ui-sortable" id="sort2" data-status-id="2">
-
-            <li class="text-row ui-sortable-handle" data-task-id="2" data-toggle="modal" data-target="#standardModal">Listing with Filtering and Pagination</li>
-
-            <li class="text-row ui-sortable-handle" data-task-id="3" data-toggle="modal" data-target="#standardModal">Sorting and Change Ordering</li>
-          </ul>
-          <div class="actions">
-            <div class="add-card">
-              <a href="#" class="add-card-btn">+ Add a task...</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="status-card">
-          <div class="card-header">
-            <span class="card-header-text">Pending</span>
-          </div>
-          <ul class="sortable ui-sortable" id="sort3" data-status-id="3">
-
-            <li class="text-row ui-sortable-handle" data-task-id="4" data-toggle="modal" data-target="#standardModal">Client-side and server-side Validation</li>
-          </ul>
-          <div class="actions">
-            <div class="add-card">
-              <a href="#" class="add-card-btn">+ Add a task...</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="status-card">
-          <div class="card-header">
-            <span class="card-header-text">Done</span>
-          </div>
-          <ul class="sortable ui-sortable" id="sort4" data-status-id="4">
-          </ul>
-          <div class="actions">
-            <div class="add-card">
-              <a href="#" class="add-card-btn">+ Add a task...</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div style="display:none" id="new-card">
-    <div class="new-task">
-      <div>
-        <!-- Textarea 2 rows height -->
-        <div class="form-outline">
-          <textarea class="form-control" id="textAreaExample3" rows="2"></textarea>
-          <label class="form-label" for="textAreaExample3"></label>
-        </div>
-      </div>
-      <div class="buttons">
-        <button type="button" class="btn btn-primary btn-sm saved">save</button>
-        <button type="button" class="btn btn-secondary btn-sm closed">X</button>
-      </div>
-    </div>
-  </div>   
-</div>
-<!-- modal -->
-
-<!-- <div class="modal fade" id="standardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
-  <div class="modal fade" id="standardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="w-80 ml-custom rome modal-content px-3 py-2 bg-light">
-        <div class="row no-gutters">
-          <div class="col-md-1 text-center">
-            <i class="fas fa-comment-alt-dots float-left mt-1 mr-2 fw-100"></i>
-          </div>
-          <div class="col-md-11">
-            <p>Make it possible for me to knowing the beginning of a subscription, the end of a subscription and have a automatic email send to me let me know</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-8">
+   <head>
+      <title>Trello</title>
+      <link rel="stylesheet" href="./assets/bootstrap.min.css" >
+      <link rel="stylesheet" href="./assets/jquery-ui.min.css">
+      <link rel="stylesheet" href="./assets/css/style.css">
+      <script src="./assets/jquery-1.12.4.min.js"></script>
+      <script src="./assets/jquery-ui.min.js"></script>
+      <style>
+      </style>
+   </head>
+   <body style="font-family:arial; background-color:black;">
+      <div class="try">
+         <div class="container">
             <div class="row">
-              <div class="col-md-1">
-                <i class="fas fa-line-columns fw-100"></i>
-              </div>
-              <div class="col-md-10">
-                <span>Description</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <textarea class="same form-control mt-2 bg-loght" rows="2"></textarea>
-              </div>
-            </div>
-            <div class="row mt-2">
-              <div class="col-md-6">
-                <i class="mr-2 fas fa-bars fw-100"></i>
-                <span>Activity</span>
-              </div>
-              <div class="col-md-6 text-right">
-                <div class="bg-loght rounded py-1 text-center">Hide Details</div>
-              </div>
-            </div>
-            <div class="row mt-2">
-              <div class="col-md-12 d-flex">
-                <a class="bg-loght px-2 py-1 mr-1 rounded tablet">All</a>
-                <a class="bg-loght px-2 py-1 mr-1 rounded tablet">Comments</a>
-                <a class="bg-loght px-2 py-1 mr-1 rounded tablet">History</a>
-                <a class="bg-loght px-2 py-1 mr-1 rounded tablet">Work Log</a>
-              </div>
-              <div class="col-md-12 d-flex">
-                <a class="bg-loght px-1 mt-2 py-1 mr-1 rounded tablet">Salesforce Comments</a>
-                <a class="bg-loght px-1 mt-2 py-1 mr-1 rounded tablet">Zendesk Support</a>
-              </div>
-            </div>
-            <div id="comments"> 
-              <div class="row mt-3 no-gutters">
-                <div class="col-2 px-1">
-                 <img src="imgs/download.jpg" class="rounded-circle w-100"> 
+               <div class="col-md-3">
+                  <div class="status-card">
+                     <div class="card-header">
+                        <span class="card-header-text">New</span>
+                     </div>
+                     <ul class="sortable ui-sortable" id="sort1" data-status-id="1">
+                        <li class="text-row ui-sortable-handle" data-task-id="1" data-toggle="modal" data-target="#standardModal">Tutorial CRUD</li>
+                     </ul>
+                     <div class="actions">
+                        <div class="add-card">
+                           <a href="#" class="add-card-btn">+ Add a task...</a>
+                        </div>
+                     </div>
+                  </div>
                </div>
-               <div class="col-10">
-                <input type="text" class="mt-3 same form-control" name="" id="message" requiredr>
-              </div>
+               <div class="col-md-3">
+                  <div class="status-card">
+                     <div class="card-header">
+                        <span class="card-header-text">In Progress</span>
+                     </div>
+                     <ul class="sortable ui-sortable" id="sort2" data-status-id="2">
+                        <li class="text-row ui-sortable-handle" data-task-id="2" data-toggle="modal" data-target="#standardModal">Listing with Filtering and Pagination</li>
+                        <li class="text-row ui-sortable-handle" data-task-id="3" data-toggle="modal" data-target="#standardModal">Sorting and Change Ordering</li>
+                     </ul>
+                     <div class="actions">
+                        <div class="add-card">
+                           <a href="#" class="add-card-btn">+ Add a task...</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="status-card">
+                     <div class="card-header">
+                        <span class="card-header-text">Pending</span>
+                     </div>
+                     <ul class="sortable ui-sortable" id="sort3" data-status-id="3">
+                        <li class="text-row ui-sortable-handle" data-task-id="4" data-toggle="modal" data-target="#standardModal">Client-side and server-side Validation</li>
+                     </ul>
+                     <div class="actions">
+                        <div class="add-card">
+                           <a href="#" class="add-card-btn">+ Add a task...</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3">
+                  <div class="status-card">
+                     <div class="card-header">
+                        <span class="card-header-text">Done</span>
+                     </div>
+                     <ul class="sortable ui-sortable" id="sort4" data-status-id="4">
+                     </ul>
+                     <div class="actions">
+                        <div class="add-card">
+                           <a href="#" class="add-card-btn">+ Add a task...</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div id="thisis">
-              <div class="row mt-2">
-                <div class="col-md-12">
-                  <div class="custom mr-2">JA</div>
-                  <div><small class="mr-1"><b>zain_dixeam</b></small><small>move this card higher</small><br><div class="fn-12">Jan 22 at 9:11 pm</div></div>
-                </div>
-              </div>
-              <div class="row mt-2">
-                <div class="col-md-12">
-                  <div class="custom mr-2">JA</div>
-                  <div><small class="mr-1"><b>zain_dixeam26</b></small><small>card review by Qaisar</small><br><div class="fn-12">Jan 22 at 9:11 pm</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="all" style="display:none;">
-            <p class="mt-2">This is dummy text</p>
-          </div>
-          <div id="history" style="display:none;">
-            <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-          </div>
-          <div id="work" style="display:none;">
-            <p class="mt-2">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <div id="salesforce" style="display:none;">
-            <p class="mt-2">This is also dummy text</p>
-          </div>
-          <div id="zendesk" style="display:none;">
-            <p class="mt-2">Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="row mb-2">
-            <div class="col-md-12 d-flex justify-content-between">
-              <span class="fw-600">Suggested</span>
-              <i class="fas fa-cog fw-100 bg-loght p-1 rounded"></i>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-md-12">
-              <div class="bg-loght cli rounded py-1"><i class="fas fa-user mx-2 fw-100"></i>Join</div>
-
-              <div class="para" style="display:none;">
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Join</div>
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Join</div>
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Join</div>
-              </div>
-
-            </div>
-          </div>
-          <span >Add to card</span>
-
-          <div class="row mt-2">
-            <div class="col-md-12">
-              <div class="bg-loght clic rounded py-1"><i class="fas fa-user mx-2 fw-100"></i>Member</div>
-
-              <div class="parag" style="display:none;">
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Member</div>
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Member</div>
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Member</div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="row mt-2">
-            <div class="col-md-12">
-              <div class="bg-loght clicko rounded py-1"><i class="fas fa-tag fa-tag mx-2 fw-100"></i>Labels</div>
-
-              <div class="paragr" style="display:none;">
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-tag fa-tag mx-2 fw-100"></i>Labels</div>
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-tag fa-tag mx-2 fw-100"></i>Labels</div>
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-tag fa-tag mx-2 fw-100"></i>Labels</div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="row mt-2">
-            <div class="col-md-12">
-              <div class="bg-loght clickok rounded py-1"><i class="fas fa-list-alt mx-2 fw-100"></i>Checklist</div>
-
-              <div class="paragro" style="display:none;">
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-list-alt mx-2 fw-100"></i>Checklist</div>
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-list-alt mx-2 fw-100"></i>Checklist</div>
-                <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-list-alt mx-2 fw-100"></i>Checklist</div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="row mt-2">
-            <div class="col-md-12">
-              <div class="bg-loght clickk rounded py-1"><i class="fas fa-clock mx-2 fw-100"></i>Dates</div>
-
-              <div class="paragra" style="display:none;">
-                  <!-- <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-clock mx-2 fw-100"></i>Dates</div>
-                  <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-clock mx-2 fw-100"></i>Dates</div>
-                  <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-clock mx-2 fw-100"></i>Dates</div> -->
-                  <input type="date" class="f-10 mt-2 form-control" name="">
-                </div>
-
-              </div>
-            </div>
-
-            <div class="row mt-2">
-              <div class="col-md-12">
-                <div class="bg-loght clickkk rounded py-1"><i class="fas fa-paperclip mx-2 fw-100"></i>Attachment</div>
-
-                <div class="paragrag" style="display:none;">
-                  <!-- <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-paperclip mx-2 fw-100"></i>Attachment</div>
-                  <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-paperclip mx-2 fw-100"></i>Attachment</div>
-                  <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-paperclip mx-2 fw-100"></i>Attachment</div> -->
-                  <input type="file" class="f-10 form-control mt-2" name="">
-                </div>
-
-              </div>
-            </div>
-
-            <div class="row mt-2">
-              <div class="col-md-12">
-                <div class="bg-loght clickkki rounded py-1"><i class="fas fa-blanket mx-2 fw-100"></i>Cover</div>
-
-                <div class="paragragh" style="display:none;">
-                  <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-blanket mx-2 fw-100"></i>Cover</div>
-                  <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-blanket mx-2 fw-100"></i>Cover</div>
-                  <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-blanket mx-2 fw-100"></i>Cover</div>
-                </div>
-
-              </div>
-            </div>
-
-
-            <div class="row mt-2">
-              <div class="col-md-12">
-                <div class="bg-loght rounded py-1"><i class="fas fa-comment-alt-lines mx-2 fw-100"></i>Cutom Field</div>
-              </div>
-            </div>
-
-            <div class="row mt-2">
-              <div class="col-md-11">
-                <small>Dropdown,textfields,dates and more to your cards</small>
-              </div>
-            </div>
-
-            <div class="row mt-2">
-              <div class="col-md-12">
-                <div class="bg-purp rounded py-1 text-purp"><i class="fas fa-container-storage mx-2 fw-100"></i>Member</div>
-              </div>
-            </div>
-
-            <div class="row mt-2">
-              <div class="col-md-12">
-                <span class="fw-600">Power-Ups</span>
-                <div class="mt-2"><i class="fw-100 fas fa-plus mr-1"></i>Add Power-Ups</div>
-              </div>
-            </div>
-
-            <div class="row mt-2">
-              <div class="col-md-12 d-flex justify-content-between">
-                <span class="fw-600">Automation</span>
-                <i class="fas fa-info-circle fw-100 p-1 bg-loght rounded"></i><br>
-              </div>
-              <div class="col-md-12">
-                <div class="mt-2 appe"><i class="fw-100 fas fa-plus mr-1"></i>Add buttons</div>
-              </div>
-            </div>
-
-            <div class="row mt-2">
-              <div class="col-md-12">
-                <span class="fw-600">Action</span>
-
-                <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-arrow-right mx-2 fw-100"></i>Move</div>
-                <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-clone mx-2 fw-100"></i>Copy</div>
-                <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-file-alt mx-2 fw-100"></i>Tempelate</div>
-                <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-eye mx-2 fw-100"></i>Watch</div>
-                <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-folder mx-2 fw-100"></i>Archieve</div>
-                <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-share-alt mx-2 fw-100"></i>Share</div>
-
-              </div>
-            </div>
-          </div>
-        </div>
+         </div>
       </div>
-    </div>
-  </div>
-</div>
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script> -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.2/web-animations.min.js'></script>
-<script src='https://cdn.jsdelivr.net/gh/haltu/muuri@0.9.3/dist/muuri.min.js'></script><script  src="./script.js"></script>
-<script>
-  $( function() {
-    var url = 'edit-status.php';
-    $('ul[id^="sort"]').sortable({
-      connectWith: ".sortable",
-      receive: function (e, ui) {
-        var status_id = $(ui.item).parent(".sortable").data("status-id");
-        var task_id = $(ui.item).data("task-id");
-        $.ajax({
-          url: url+'?status_id='+status_id+'&task_id='+task_id,
-          success: function(response){
-          }
-        });
-      }
-
-    }).disableSelection();
-  } );
-
-  $( document ).ready(function() {
-
-   $(document).on("click", ".text-row", function (event) {
-     console.log("test");
-   });
-   $(document).on("click", ".add-card-btn", function (event) {
-    let new_card = $("#new-card").html();
-    $(this).closest(".status-card").find(".actions").prepend(new_card);
-    $(this).hide();
-  });
-   $(document).on("click", ".saved", function (event) {
-    let card_content = $(this).closest(".new-task").find("textarea").val();
-    $(this).closest(".status-card").find("ul").append('<li class="text-row ui-sortable-handle" data-task-id="2" data-toggle="modal" data-target="#standardModal">'+card_content+'</li>');
-    $(this).closest(".actions").find(".add-card-btn").show();
-    $(this).closest(".new-task").hide();
-  });
-   $(document).on("click", ".closed", function (event) {
-    $(this).closest(".actions").find(".add-card-btn").show();
-    $(this).closest(".new-task").hide();
-  });
-
- });
-</script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $(".cli").click(function(){
-      $(".para").toggle();
-    });
-  });
-
-  $(document).ready(function(){
-    $(".clic").click(function(){
-      $(".parag").toggle();
-    });
-  });
-
-  $(document).ready(function(){
-    $(".clicko").click(function(){
-      $(".paragr").toggle();
-    });
-  });
-
-  $(document).ready(function(){
-    $(".clickok").click(function(){
-      $(".paragro").toggle();
-    });
-  });
-
-  $(document).ready(function(){
-    $(".clickk").click(function(){
-      $(".paragra").toggle();
-    });
-  });
-
-  $(document).ready(function(){
-    $(".clickkk").click(function(){
-      $(".paragrag").toggle();
-    });
-  });
-
-  $(document).ready(function(){
-    $(".clickkki").click(function(){
-      $(".paragragh").toggle();
-    });
-  });
-  $(document).on("click", ".tablet", function () {
-    var text = $(this).text();
-    console.log(text);
-    if (text.toLowerCase() == "all"){
-      $("#all").show();
-      $("#comments").hide();
-      $("#history").hide();
-      $("#zendesk").hide();
-      $("#salesforce").hide();
-      $("#work").hide();
-    } else if (text.toLowerCase() == "comments"){
-      $("#all").hide();
-      $("#comments").show();
-      $("#history").hide();
-      $("#zendesk").hide();
-      $("#salesforce").hide();
-      $("#work").hide();
-    } else if (text.toLowerCase() == "history"){
-      $("#all").hide();
-      $("#comments").hide();
-      $("#history").show();
-      $("#zendesk").hide();
-      $("#salesforce").hide();
-      $("#work").hide();
-    } else if (text.toLowerCase() == "zendesk support"){
-      $("#all").hide();
-      $("#comments").hide();
-      $("#history").hide();
-      $("#zendesk").show();
-      $("#salesforce").hide();
-      $("#work").hide();
-    } else if (text.toLowerCase() == "salesforce comments"){
-      $("#all").hide();
-      $("#comments").hide();
-      $("#history").hide();
-      $("#zendesk").hide();
-      $("#salesforce").show();
-      $("#work").hide();
-    } else if (text.toLowerCase() == "work log"){
-      $("#all").hide();
-      $("#comments").hide();
-      $("#history").hide();
-      $("#zendesk").hide();
-      $("#salesforce").hide();
-      $("#work").show();
-    }
-  })
-  $("#message").keypress(function (e) {
-    if (e.keyCode == 13) {
-      var text = $(this).val();
-      var data=`<div class="row mt-2">
-      <div class="col-md-12">
-      <div class="custom mr-2">ZA</div>
-      <div><small class="mr-1"><b>zain_dixeam26</b></small><small>`+text+`</small><br><div class="fn-12">Jan 22 at 9:11 pm</div></div>
+      <div style="display:none" id="new-card">
+         <div class="new-task">
+            <div>
+               <!-- Textarea 2 rows height -->
+               <div class="form-outline">
+                  <textarea class="form-control" id="textAreaExample3" rows="2"></textarea>
+                  <label class="form-label" for="textAreaExample3"></label>
+               </div>
+            </div>
+            <div class="buttons">
+               <button type="button" class="btn btn-primary btn-sm saved">save</button>
+               <button type="button" class="btn btn-secondary btn-sm closed">X</button>
+            </div>
+         </div>
       </div>
-      </div>`;
-      $("#thisis").append(data);
-      $("input[type=text], textarea").val("");
-
-    }
-  })
-  $(document).ready(function(){
-    $(".appe").click(function(){
-        // alert("hello");
-        $(".appe").append(`<button type="button" class="btn btn-info mt-1 form-control">Submitt</button>`);
-      });
-  });
-</script>
-</body>
-
+      </div>
+      <!-- modal -->
+      <div class="tryModal">
+         <div class="modal fade" id="standardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="w-80 ml-custom rome modal-content px-3 py-2 bg-light">
+                  <div class="row no-gutters">
+                     <div class="col-md-1 text-center">
+                        <i class="fas fa-comment-alt-dots float-left mt-1 mr-2 fw-100"></i>
+                     </div>
+                     <div class="col-md-11">
+                        <p>Make it possible for me to knowing the beginning of a subscription, the end of a subscription and have a automatic email send to me let me know</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-8">
+                        <div class="row">
+                           <div class="col-md-1">
+                              <i class="fas fa-line-columns fw-100"></i>
+                           </div>
+                           <div class="col-md-10">
+                              <span>Description</span>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-12">
+                              <textarea class="same form-control mt-2 bg-loght" rows="2"></textarea>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-6">
+                              <i class="mr-2 fas fa-bars fw-100"></i>
+                              <span>Activity</span>
+                           </div>
+                           <div class="col-md-6 text-right">
+                              <div class="bg-loght rounded py-1 text-center">Hide Details</div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12 d-flex">
+                              <a class="bg-loght px-2 py-1 mr-1 rounded tablet">All</a>
+                              <a class="bg-loght px-2 py-1 mr-1 rounded tablet">Comments</a>
+                              <a class="bg-loght px-2 py-1 mr-1 rounded tablet">History</a>
+                              <a class="bg-loght px-2 py-1 mr-1 rounded tablet">Work Log</a>
+                           </div>
+                           <div class="col-md-12 d-flex">
+                              <a class="bg-loght px-1 mt-2 py-1 mr-1 rounded tablet">Salesforce Comments</a>
+                              <a class="bg-loght px-1 mt-2 py-1 mr-1 rounded tablet">Zendesk Support</a>
+                           </div>
+                        </div>
+                        <div id="comments">
+                           <div class="row mt-3 no-gutters">
+                              <div class="col-2 px-1">
+                                 <img src="imgs/download.jpg" class="rounded-circle w-100"> 
+                              </div>
+                              <div class="col-10">
+                                 <input type="text" class="mt-3 same form-control" name="" id="message" requiredr>
+                              </div>
+                           </div>
+                           <div id="thisis">
+                              <div class="row mt-2">
+                                 <div class="col-md-12">
+                                    <div class="custom mr-2">JA</div>
+                                    <div>
+                                       <small class="mr-1"><b>zain_dixeam</b></small><small>move this card higher</small><br>
+                                       <div class="fn-12">Jan 22 at 9:11 pm</div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="row mt-2">
+                                 <div class="col-md-12">
+                                    <div class="custom mr-2">JA</div>
+                                    <div>
+                                       <small class="mr-1"><b>zain_dixeam26</b></small><small>card review by Qaisar</small><br>
+                                       <div class="fn-12">Jan 22 at 9:11 pm</div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div id="all" style="display:none;">
+                           <p class="mt-2">This is dummy text</p>
+                        </div>
+                        <div id="history" style="display:none;">
+                           <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                           </p>
+                        </div>
+                        <div id="work" style="display:none;">
+                           <p class="mt-2">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                           </p>
+                        </div>
+                        <div id="salesforce" style="display:none;">
+                           <p class="mt-2">This is also dummy text</p>
+                        </div>
+                        <div id="zendesk" style="display:none;">
+                           <p class="mt-2">Duis aute irure dolor in reprehenderit in voluptate velit esse
+                              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="row mb-2">
+                           <div class="col-md-12 d-flex justify-content-between">
+                              <span class="fw-600">Suggested</span>
+                              <i class="fas fa-cog fw-100 bg-loght p-1 rounded"></i>
+                           </div>
+                        </div>
+                        <div class="row mb-3">
+                           <div class="col-md-12">
+                              <div class="bg-loght cli rounded py-1"><i class="fas fa-user mx-2 fw-100"></i>Join</div>
+                              <div class="para" style="display:none;">
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Join</div>
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Join</div>
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Join</div>
+                              </div>
+                           </div>
+                        </div>
+                        <span >Add to card</span>
+                        <div class="row mt-2">
+                           <div class="col-md-12">
+                              <div class="bg-loght clic rounded py-1"><i class="fas fa-user mx-2 fw-100"></i>Member</div>
+                              <div class="parag" style="display:none;">
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Member</div>
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Member</div>
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-user mx-2 fw-100"></i>Member</div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12">
+                              <div class="bg-loght clicko rounded py-1"><i class="fas fa-tag fa-tag mx-2 fw-100"></i>Labels</div>
+                              <div class="paragr" style="display:none;">
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-tag fa-tag mx-2 fw-100"></i>Labels</div>
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-tag fa-tag mx-2 fw-100"></i>Labels</div>
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-tag fa-tag mx-2 fw-100"></i>Labels</div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12">
+                              <div class="bg-loght clickok rounded py-1"><i class="fas fa-list-alt mx-2 fw-100"></i>Checklist</div>
+                              <div class="paragro" style="display:none;">
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-list-alt mx-2 fw-100"></i>Checklist</div>
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-list-alt mx-2 fw-100"></i>Checklist</div>
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-list-alt mx-2 fw-100"></i>Checklist</div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12">
+                              <div class="bg-loght clickk rounded py-1"><i class="fas fa-clock mx-2 fw-100"></i>Dates</div>
+                              <div class="paragra" style="display:none;">
+                                 <!-- <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-clock mx-2 fw-100"></i>Dates</div>
+                                    <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-clock mx-2 fw-100"></i>Dates</div>
+                                    <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-clock mx-2 fw-100"></i>Dates</div> -->
+                                 <input type="date" class="f-10 mt-2 form-control" name="">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12">
+                              <div class="bg-loght clickkk rounded py-1"><i class="fas fa-paperclip mx-2 fw-100"></i>Attachment</div>
+                              <div class="paragrag" style="display:none;">
+                                 <!-- <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-paperclip mx-2 fw-100"></i>Attachment</div>
+                                    <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-paperclip mx-2 fw-100"></i>Attachment</div>
+                                    <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-paperclip mx-2 fw-100"></i>Attachment</div> -->
+                                 <input type="file" class="f-10 form-control mt-2" name="">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12">
+                              <div class="bg-loght clickkki rounded py-1"><i class="fas fa-blanket mx-2 fw-100"></i>Cover</div>
+                              <div class="paragragh" style="display:none;">
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-blanket mx-2 fw-100"></i>Cover</div>
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-blanket mx-2 fw-100"></i>Cover</div>
+                                 <div class="bg-loght rounded py-1 mt-2"><i class="fas fa-blanket mx-2 fw-100"></i>Cover</div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12">
+                              <div class="bg-loght rounded py-1"><i class="fas fa-comment-alt-lines mx-2 fw-100"></i>Cutom Field</div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-11">
+                              <small>Dropdown,textfields,dates and more to your cards</small>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12">
+                              <div class="bg-purp rounded py-1 text-purp"><i class="fas fa-container-storage mx-2 fw-100"></i>Member</div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12">
+                              <span class="fw-600">Power-Ups</span>
+                              <div class="mt-2"><i class="fw-100 fas fa-plus mr-1"></i>Add Power-Ups</div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12 d-flex justify-content-between">
+                              <span class="fw-600">Automation</span>
+                              <i class="fas fa-info-circle fw-100 p-1 bg-loght rounded"></i><br>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="mt-2 appe"><i class="fw-100 fas fa-plus mr-1"></i>Add buttons</div>
+                           </div>
+                        </div>
+                        <div class="row mt-2">
+                           <div class="col-md-12">
+                              <span class="fw-600">Action</span>
+                              <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-arrow-right mx-2 fw-100"></i>Move</div>
+                              <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-clone mx-2 fw-100"></i>Copy</div>
+                              <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-file-alt mx-2 fw-100"></i>Tempelate</div>
+                              <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-eye mx-2 fw-100"></i>Watch</div>
+                              <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-folder mx-2 fw-100"></i>Archieve</div>
+                              <div class="mt-2 bg-loght rounded py-1"><i class="fas fa-share-alt mx-2 fw-100"></i>Share</div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script> -->
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.2/web-animations.min.js'></script>
+      <script src='https://cdn.jsdelivr.net/gh/haltu/muuri@0.9.3/dist/muuri.min.js'></script><script  src="./script.js"></script>
+      <script>
+         $( function() {
+           var url = 'edit-status.php';
+           $('ul[id^="sort"]').sortable({
+             connectWith: ".sortable",
+             receive: function (e, ui) {
+               var status_id = $(ui.item).parent(".sortable").data("status-id");
+               var task_id = $(ui.item).data("task-id");
+               $.ajax({
+                 url: url+'?status_id='+status_id+'&task_id='+task_id,
+                 success: function(response){
+                 }
+               });
+             }
+         
+           }).disableSelection();
+         } );
+         
+         $( document ).ready(function() {
+         
+          $(document).on("click", ".text-row", function (event) {
+            console.log("test");
+          });
+          $(document).on("click", ".add-card-btn", function (event) {
+           let new_card = $("#new-card").html();
+           $(this).closest(".status-card").find(".actions").prepend(new_card);
+           $(this).hide();
+         });
+          $(document).on("click", ".saved", function (event) {
+           let card_content = $(this).closest(".new-task").find("textarea").val();
+           $(this).closest(".status-card").find("ul").append('<li class="text-row ui-sortable-handle" data-task-id="2" data-toggle="modal" data-target="#standardModal">'+card_content+'</li>');
+           $(this).closest(".actions").find(".add-card-btn").show();
+           $(this).closest(".new-task").hide();
+         });
+          $(document).on("click", ".closed", function (event) {
+           $(this).closest(".actions").find(".add-card-btn").show();
+           $(this).closest(".new-task").hide();
+         });
+         
+         });
+      </script>
+      <script type="text/javascript">
+         $(document).ready(function(){
+           $(".cli").click(function(){
+             $(".para").toggle();
+           });
+         });
+         
+         $(document).ready(function(){
+           $(".clic").click(function(){
+             $(".parag").toggle();
+           });
+         });
+         
+         $(document).ready(function(){
+           $(".clicko").click(function(){
+             $(".paragr").toggle();
+           });
+         });
+         
+         $(document).ready(function(){
+           $(".clickok").click(function(){
+             $(".paragro").toggle();
+           });
+         });
+         
+         $(document).ready(function(){
+           $(".clickk").click(function(){
+             $(".paragra").toggle();
+           });
+         });
+         
+         $(document).ready(function(){
+           $(".clickkk").click(function(){
+             $(".paragrag").toggle();
+           });
+         });
+         
+         $(document).ready(function(){
+           $(".clickkki").click(function(){
+             $(".paragragh").toggle();
+           });
+         });
+         $(document).on("click", ".tablet", function () {
+           var text = $(this).text();
+           console.log(text);
+           if (text.toLowerCase() == "all"){
+             $("#all").show();
+             $("#comments").hide();
+             $("#history").hide();
+             $("#zendesk").hide();
+             $("#salesforce").hide();
+             $("#work").hide();
+           } else if (text.toLowerCase() == "comments"){
+             $("#all").hide();
+             $("#comments").show();
+             $("#history").hide();
+             $("#zendesk").hide();
+             $("#salesforce").hide();
+             $("#work").hide();
+           } else if (text.toLowerCase() == "history"){
+             $("#all").hide();
+             $("#comments").hide();
+             $("#history").show();
+             $("#zendesk").hide();
+             $("#salesforce").hide();
+             $("#work").hide();
+           } else if (text.toLowerCase() == "zendesk support"){
+             $("#all").hide();
+             $("#comments").hide();
+             $("#history").hide();
+             $("#zendesk").show();
+             $("#salesforce").hide();
+             $("#work").hide();
+           } else if (text.toLowerCase() == "salesforce comments"){
+             $("#all").hide();
+             $("#comments").hide();
+             $("#history").hide();
+             $("#zendesk").hide();
+             $("#salesforce").show();
+             $("#work").hide();
+           } else if (text.toLowerCase() == "work log"){
+             $("#all").hide();
+             $("#comments").hide();
+             $("#history").hide();
+             $("#zendesk").hide();
+             $("#salesforce").hide();
+             $("#work").show();
+           }
+         })
+         $("#message").keypress(function (e) {
+           if (e.keyCode == 13) {
+             var text = $(this).val();
+             var data=`<div class="row mt-2">
+             <div class="col-md-12">
+             <div class="custom mr-2">ZA</div>
+             <div><small class="mr-1"><b>zain_dixeam26</b></small><small>`+text+`</small><br><div class="fn-12">Jan 22 at 9:11 pm</div></div>
+             </div>
+             </div>`;
+             $("#thisis").append(data);
+             $("input[type=text], textarea").val("");
+         
+           }
+         })
+         $(document).ready(function(){
+           $(".appe").click(function(){
+               // alert("hello");
+               $(".appe").append(`<button type="button" class="btn btn-info mt-1 form-control">Submitt</button>`);
+             });
+         });
+      </script>
+   </body>
 </html>
