@@ -53,7 +53,7 @@ a {
 }
 
 .status-card {
-  width: inherit;
+  width:-webkit-fill-available;
   margin-right: 8px;
   background: #e2e4e6;
   border-radius: 3px;
@@ -309,6 +309,17 @@ a {
 
 .trymodal .custom {
   background: #182B4E;
+  height: 24px;
+  line-height: 26px;
+  width: 24px;
+  border-radius: 100%;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  float: left;
+}
+.trymodal .custom1 {
+  background: #FBBC04;
   height: 30px;
   line-height: 30px;
   width: 30px;
@@ -354,11 +365,11 @@ a {
 }
 
 .w-80 {
-  width: 800px !important;
+  width: 950px !important;
 }
 
 .ml-custom {
-  margin-left: -152px;
+  margin-left: -235px;
 }
 
 .trymodal.modal-fullscreen {
